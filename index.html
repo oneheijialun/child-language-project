@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>儿童语言能力评估与干预项目</title><style>:root{
+  --ink:#183e34;
+  --muted:#465e55;
+  --cream:#fff6de;
+  --sky:#a9e3f1;
+  --green:#185641;
+  --line:#d4ddd1;
+  color:var(--ink);
+  background:var(--cream);
+  font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:95px}
+body{margin:0}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit}
+button,a{touch-action:manipulation}
+:focus-visible{outline:3px solid #ad6311;outline-offset:4px}
+.wrap{width:min(1200px,calc(100% - 56px));margin-inline:auto}
+.skip{position:absolute;top:0;left:0;transform:translateY(-140%);background:white;padding:10px;z-index:3}
+.skip:focus{transform:none}
+.top{position:sticky;top:0;z-index:2;padding:12px 0;background:#fdfbf1f2;backdrop-filter:blur(12px);border-bottom:1px solid #dce3d4}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:42px}
+.brand{text-decoration:none;font-weight:800;letter-spacing:.025em}
+nav{display:flex;align-items:center;gap:clamp(12px,2vw,29px)}
+nav a{text-decoration:none;white-space:nowrap;font-weight:650;font-size:.91rem}
+nav a:hover,nav a[aria-current]{text-decoration:underline;text-underline-offset:7px}
+.menu{display:none}
+h1,h2,h3,p,blockquote{margin:0}
+h1{font-size:clamp(2.35rem,5.1vw,4.55rem);letter-spacing:-.065em;line-height:1.12}
+h2{font-size:clamp(1.85rem,3.8vw,3.05rem);line-height:1.2;letter-spacing:-.045em}
+h3{font-size:1.28rem}
+p,li{line-height:1.85}
+.hero{background:radial-gradient(ellipse at 82% 22%,#e0f6ff 0%,transparent 38%),var(--sky);position:relative;padding:clamp(62px,9vw,124px) 0;overflow:hidden}
+.hero-landscape{position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(ellipse 55% 90px at 16% 105%,#a4d577 99%,transparent 100%),
+  radial-gradient(ellipse 62% 78px at 77% 103%,#a4d577 99%,transparent 100%),
+  radial-gradient(ellipse 62% 90px at 56% 101%,#8ac870 99%,transparent 100%)}
+.sun{position:absolute;right:6%;top:9%;width:clamp(54px,9vw,128px);aspect-ratio:1;border-radius:50%;background:#ffda70;box-shadow:0 0 0 10px #ffe79b93,0 0 0 21px #fff1be68}
+.cloud{position:absolute;width:clamp(63px,13vw,170px);height:clamp(28px,5vw,70px);background:
+  radial-gradient(ellipse 31% 30% at 24% 66%,#fffdf2 96%,transparent 100%),
+  radial-gradient(ellipse 29% 46% at 52% 49%,#fffdf2 96%,transparent 100%),
+  radial-gradient(ellipse 33% 30% at 75% 66%,#fffdf2 96%,transparent 100%);opacity:.87}
+.cloud-left{top:8%;left:7%;transform:rotate(-7deg)}
+.cloud-right{bottom:14%;right:2%;transform:rotate(5deg) scale(.82)}
+.sprig{position:absolute;bottom:-1px;left:2%;width:clamp(42px,7vw,97px);height:clamp(65px,12vw,154px);transform:rotate(-14deg);transform-origin:bottom center;background:
+  radial-gradient(ellipse 19% 27% at 49% 17%,#478d58 93%,transparent 100%),
+  radial-gradient(ellipse 21% 13% at 35% 45%,#61a85d 93%,transparent 100%),
+  radial-gradient(ellipse 23% 13% at 68% 55%,#478d58 93%,transparent 100%),
+  radial-gradient(ellipse 23% 13% at 31% 69%,#79b864 93%,transparent 100%),
+  linear-gradient(#478d58,#478d58) 50% 75%/5% 75% no-repeat}
+.sprig-right{left:auto;right:2.7%;transform:scaleX(-1) rotate(-20deg) scale(.81)}
+.hero .grid{position:relative;z-index:1}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.28fr);align-items:center;gap:clamp(30px,5vw,82px)}
+.hero h1 span{display:block}
+.hero h1 span:last-child{color:#21654c}
+.hero figure{margin:0;transform:rotate(-2deg);border:8px solid #fffef3;border-radius:23px;background:white;box-shadow:0 20px 40px #234c4633;overflow:hidden}
+.hero figure img{width:100%}
+.action{display:inline-flex;align-items:center;gap:14px;background:var(--green);color:white;border:1px solid transparent;border-radius:999px;padding:12px 22px;text-decoration:none;font-weight:750;cursor:pointer}
+.action:hover{background:#123e32}
+.action[disabled]{opacity:.48;cursor:default}
+.hero .action,.feature .action{margin-top:28px}
+.quote{--section-bg:#faf7ed;--curve-color:#a4d577;padding:clamp(55px,8vw,110px) 0;background:var(--section-bg);position:relative;isolation:isolate}
+.quote .grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.15fr)}
+.portrait{background:#d9efd4;border:8px solid #fffdf4;border-radius:30% 30% 24px 24px;aspect-ratio:4/4.15;display:flex;justify-content:center;align-items:end;overflow:hidden;box-shadow:0 15px 32px #31574424}
+.portrait img{width:100%;height:100%;object-fit:contain;object-position:center bottom}
+.quote h2{font-size:clamp(1.5rem,2.6vw,2.45rem);margin-bottom:21px}
+blockquote{font-size:clamp(1.2rem,2.15vw,1.73rem);line-height:1.85}
+.byline{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:18px;font-size:.91rem}
+.signature{width:121px;mix-blend-mode:multiply;filter:contrast(1.65)}
+.feature{padding:clamp(66px,10vw,135px) 0;min-height:min(660px,85vh);display:flex;align-items:center;position:relative;isolation:isolate;overflow:hidden}
+.section-curve{position:absolute;z-index:-1;top:-1px;left:0;width:100%;height:clamp(26px,5vw,71px);pointer-events:none}
+/* Two overlapping hills below the hero grass. */
+.quote .section-curve{background:
+  radial-gradient(ellipse 65% 91% at 5% 0,var(--curve-color) 99%,transparent 100%),
+  radial-gradient(ellipse 60% 49% at 84% 0,var(--curve-color) 99%,transparent 100%)}
+/* One wide, shallow arc above the game kits. */
+.games .section-curve{height:clamp(18px,3.8vw,51px);background:var(--curve-color);border-radius:0 0 48% 72% / 0 0 100% 84%}
+/* Three cloud-like lobes above the course cards. */
+.courses .section-curve{background:
+  radial-gradient(ellipse 29% 57% at 4% 0,var(--curve-color) 99%,transparent 100%),
+  radial-gradient(ellipse 31% 75% at 51% 0,var(--curve-color) 99%,transparent 100%),
+  radial-gradient(ellipse 29% 47% at 97% 0,var(--curve-color) 99%,transparent 100%)}
+/* An off-center swell above the learning map. */
+.practice .section-curve{height:clamp(22px,4.5vw,68px);background:
+  radial-gradient(ellipse 67% 93% at 76% 0,var(--curve-color) 99%,transparent 100%),
+  radial-gradient(ellipse 48% 30% at 0 0,var(--curve-color) 99%,transparent 100%)}
+/* A low, repeating scallop above the literacy handbook. */
+.literacy .section-curve{height:clamp(14px,2.7vw,36px);background:
+  radial-gradient(ellipse 51% 89% at 50% 0,var(--curve-color) 98%,transparent 100%) left top/20% 100% repeat-x}
+/* A sweeping asymmetric edge above the picture books. */
+.reading .section-curve{height:clamp(23px,4.8vw,70px);background:var(--curve-color);border-radius:0 0 79% 20% / 0 0 95% 20%}
+.section-curve .sprig{height:55px;width:40px;bottom:0;opacity:.57}
+.feature:nth-of-type(odd) .section-curve .sprig-right,.feature:nth-of-type(even) .section-curve .sprig-left{display:none}
+.feature::before{content:"";position:absolute;z-index:-1;inset:auto 1.4% 3% auto;width:95px;height:70px;background:radial-gradient(circle,#2e6b5350 1.5px,transparent 2px) 0 0/12px 12px;transform:rotate(-9deg);pointer-events:none}
+.feature::after{content:"";position:absolute;z-index:-1;inset:7% auto auto 2%;width:48px;height:48px;background:var(--sticker,#eabd63);transform:rotate(-16deg);clip-path:polygon(50% 0%,64% 34%,100% 38%,73% 62%,80% 100%,50% 78%,19% 100%,26% 62%,0 38%,37% 34%);opacity:.65;pointer-events:none}
+.feature.courses::after{clip-path:polygon(0 39%,55% 39%,55% 0,100% 50%,55% 100%,55% 61%,0 61%);--sticker:#eda248}
+.feature.practice::after{clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);--sticker:#3f9db8}
+.feature.literacy::after{clip-path:polygon(0 8%,44% 17%,50% 24%,56% 17%,100% 8%,100% 83%,56% 90%,50% 98%,44% 90%,0 83%);--sticker:#64a759}
+.feature.reading::after{--sticker:#ee9167}
+.feature:nth-of-type(even) .visual{order:-1}
+.feature .eyebrow{display:inline-block;background:#e8efdf;color:#285b45;padding:5px 13px;border-radius:999px;font-weight:750;margin-bottom:15px}
+.feature p,.feature ul{margin-top:16px;color:var(--muted)}
+.feature ul{padding-left:1.25em}
+.feature h3{margin-top:14px}
+.feature.games{background:#d9edbc;--curve-color:#faf7ed}
+.feature.courses{background:#fff1d4;--curve-color:#d9edbc}
+.feature.practice{background:#c6eaf3;--curve-color:#fff1d4}
+.feature.literacy{background:#d8ebc5;--curve-color:#c6eaf3}
+.feature.reading{background:#ffe5cc;--curve-color:#d8ebc5}
+.visual{display:grid;gap:14px}
+.visual.duo{grid-template-columns:1fr 1fr;align-items:center}
+.visual img,.panel>img,.preview-page,.course-card img{border:7px solid #fffdf5;background:#fffdf5;outline:1px solid #28583a32;box-shadow:0 10px 25px #193b3028;border-radius:17px}
+.visual img{width:100%;box-shadow:0 14px 38px #193b3032}
+.game-photos,.feature.literacy .visual{gap:22px}
+.game-photos img{max-height:385px;object-fit:contain}
+.course-showcase{text-align:center}
+.course-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;margin-top:32px;text-align:left}
+.course-card{display:flex;flex-direction:column;gap:10px;padding:clamp(18px,3vw,36px);border:7px solid #fffdf5;border-radius:30px;background:#dbefc6;box-shadow:0 16px 33px #193b3021}
+.course-card:nth-child(2){background:#e7dff8}
+.course-card h3,.course-card p{margin:0}
+.course-card img{margin-top:auto;width:100%;aspect-ratio:16/9;object-fit:contain}
+.course-card p:last-of-type{margin-bottom:10px}
+.visual.books img{max-height:430px;width:auto;margin:auto}
+.visual.duo:not(.books) img{background:white}
+.detail-head{background:var(--sky);padding:38px 0 49px}
+.detail-head h1{font-size:clamp(2.1rem,4.5vw,3.7rem);margin-top:18px}
+.detail-head p{margin-top:14px;max-width:68ch}
+.crumb{font-size:.9rem;color:var(--muted)}
+.detail{padding:36px 0 80px;min-height:48vh}
+.levels,.book-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.panel,details{background:#fffdf7;border:1px solid var(--line);border-radius:20px}
+.panel{padding:25px}
+.panel h2{font-size:1.65rem}
+.panel>img{width:100%;margin:15px auto;max-height:410px;object-fit:contain}
+details+details{margin-top:13px}
+summary{font-weight:750;cursor:pointer;padding:17px 21px}
+details ul{list-style:none;padding:0 19px 10px;margin:0}
+.row{border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 0}
+.row .action,.pager .action{font-size:.88rem;padding:7px 14px;white-space:nowrap}
+.course-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;align-items:start}
+.course-menu{display:grid;gap:7px}
+.course-menu a{display:block;text-decoration:none;border-radius:10px;padding:9px 12px}
+.course-menu a:hover{background:#e6eee1}
+.book-grid .panel{text-align:center}
+.book-grid img{height:295px;width:auto;object-fit:contain}
+.book-grid h2{margin:16px 0}
+.reading-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:28px;align-items:start}
+.reading-layout>section>h2{font-size:1.65rem;margin-bottom:16px}
+.group-count,.availability{font-size:.81rem;color:var(--muted);white-space:nowrap}
+.group-count{margin-left:8px;font-weight:500}
+footer{background:#174737;color:#fff;padding:29px 0}
+footer .wrap{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px 20px}
+footer a{text-decoration:none}
+.footer-identity{display:flex;align-items:baseline;gap:clamp(6px,1.5vw,18px);font-size:min(1rem,2.85vw);white-space:nowrap}
+main:has(.hero)+footer{padding-top:clamp(48px,7vw,82px);background:
+  radial-gradient(ellipse 62% clamp(19px,4vw,44px) at 38% 0,#ffe5cc 99%,transparent 100%),
+  radial-gradient(ellipse 38% clamp(10px,2vw,25px) at 100% 0,#ffe5cc 99%,transparent 100%),
+  #174737}
+dialog{width:min(850px,calc(100% - 28px));max-height:91vh;border:1px solid var(--line);border-radius:20px;padding:18px;background:#fffdf7;color:var(--ink)}
+dialog::backdrop{background:#142c27bb}
+.dialog-head,.pager{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.dialog-head{margin-bottom:13px}
+.dialog-head h2{font-size:clamp(1.1rem,3vw,1.65rem)}
+.close{border:1px solid var(--line);border-radius:50%;width:43px;height:43px;background:white;font-size:1.6rem;cursor:pointer;flex:none}
+video{width:100%;max-height:69vh;background:#132920;border-radius:10px;display:block}
+.preview-page{max-height:65vh;margin:auto;object-fit:contain}
+.pager{margin-top:14px}
+@media(max-width:760px){
+  .wrap{width:calc(100% - 34px)}
+  .nav{gap:8px;flex-wrap:wrap}
+  .brand{font-size:.88rem}
+  .menu{display:block;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 11px;color:var(--ink)}
+  nav{display:none;width:100%;flex-wrap:wrap;padding-bottom:9px}
+  nav.open{display:flex}
+  .grid,.quote .grid,.course-layout,.reading-layout{grid-template-columns:1fr;gap:26px}
+  .hero{padding:62px 0 54px}
+  .sun{right:9%;top:6%}
+  .cloud-left{left:3%;top:5%}
+  .cloud-right{right:0;bottom:13%}
+  .section-curve .sprig{height:30px;width:24px}
+  .hero figure{transform:none}
+  .portrait{width:min(100%,300px);margin:auto}
+  .feature{min-height:0}
+  .course-cards{grid-template-columns:1fr;gap:18px}
+  .feature::after{width:26px;height:26px;inset:3% 7% auto auto}
+  .feature:nth-of-type(even) .visual{order:0}
+  .levels{grid-template-columns:1fr}
+  .course-menu{grid-template-columns:repeat(4,1fr);gap:3px;text-align:center}
+  .course-menu a{padding:7px 2px}
+  .book-grid{gap:12px}
+  .book-grid .panel{padding:13px}
+  .book-grid img{height:auto;max-height:235px;border-width:4px}
+  .book-grid h2{font-size:1.12rem}
+  footer .wrap{font-size:.82rem}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+
+.public-lead{background:#a9e3f1;padding:95px 0}.public-lead .wrap{max-width:920px}.public-lead p{margin-top:24px}.public-section{padding:65px 0}.public-section:nth-of-type(odd){background:#e0efd1}.public-section:nth-of-type(even){background:#ffedda}.public-section h2{margin-bottom:18px}.public-section h3{margin:13px 0}.public-section p{max-width:68ch}.top nav{display:flex;width:auto;flex-wrap:wrap}.nav{flex-wrap:wrap}
+</style></head><body>
+<header class="top"><div class="nav wrap"><a class="brand" href="./">儿童语言能力评估与干预项目</a><nav aria-label="栏目"><a href="#games">玩中学</a><a href="#courses">看听做</a><a href="#practice">互动练</a><a href="#literacy">知字理</a><a href="#reading">学阅读</a></nav></div></header>
+<main id="main"><div class="public-lead"><div class="wrap"><h1>儿童语言能力<br>评估与干预项目</h1><p>北京师范大学心理学部舒华教授团队</p></div></div>
+<section class="public-section" id="games"><div class="wrap"><h2>玩中学</h2><h3>语言发展游戏盒</h3><ul><li>以儿童心理发展规律为基础</li><li>遵循汉语语言和阅读发展规律</li><li>采用寓教于乐、动手动脑的游戏形式</li></ul></div></section>
+<section class="public-section" id="courses"><div class="wrap"><h2>看听做</h2><h3>主题微课</h3><p>以视频课程形式，系统讲解核心知识与关键概念</p><h3>律动视频</h3><p>以儿歌律动形式，帮助儿童巩固拓展概念、积极表达</p></div></section>
+<section class="public-section" id="practice"><div class="wrap"><h2>互动练</h2><h3>AI 语言学习智能体</h3><p>依托AI智能学伴，实现个性化因材施教</p></div></section>
+<section class="public-section" id="literacy"><div class="wrap"><h2>知字理</h2><h3>识字教学手册</h3><p>把汉字字理，变成老师能用、孩子能懂的教学方法，举一反三学汉字。</p></div></section>
+<section class="public-section" id="reading"><div class="wrap"><h2>学阅读</h2><h3>分级绘本</h3><p>根据孩子的阅读能力匹配难度适宜的分级绘本，提升阅读能力。</p></div></section></main>
+<footer><div class="wrap"><div class="footer-identity"><a href="./">儿童语言能力评估与干预项目</a><span>北京师范大学心理学部舒华教授团队</span></div><a href="#main">回到顶部 ↑</a></div></footer>
+</body></html>
