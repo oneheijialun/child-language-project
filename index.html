@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#FFD23F">
+<meta name="description" content="动手动脑学语言，面向儿童与家长的语言游戏、主题课程、字理教学与绘本阅读资源。">
+<title>首页 · 动手动脑学语言</title>
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=ZCOOL+QingKe+HuangYou&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Baloo+2:wght@600;700;800&display=swap">
+<style>
+:root{
+  --yellow:#FFD23F;
+  --yellow-soft:#FFE27A;
+  --coral:#FF4D2E;
+  --blue:#3D8BFF;
+  --gold:#EBA23B;
+  --violet:#8B5CF6;
+  --green:#37C978;
+  --pink:#FF6FA5;
+  --cream:#FFF7EC;
+  --ink:#23253D;
+  --ink-soft:#4A4D6B;
+  --white:#FFFFFF;
+  --font-display:'ZCOOL QingKe HuangYou','ZCOOL KuaiLe','Noto Sans SC',sans-serif;
+  --font-body:'Noto Sans SC',-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+  --font-latin:'Baloo 2',var(--font-display);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;z-index:999;border-radius:0 0 12px 0}
+.skip:focus{left:0}
+
+/* ===== NAV ===== */
+header{position:sticky;top:14px;z-index:60;padding:0 24px}
+.header-inner{
+  max-width:1240px;margin:0 auto;
+  display:flex;align-items:center;gap:18px;
+  background:rgba(255,247,236,.88);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-radius:100px;padding:10px 14px 10px 20px;
+  box-shadow:0 10px 30px rgba(35,37,61,.08);
+}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.brand .logo{height:38px;width:auto}
+.brand .brand-en{font-family:var(--font-latin);font-weight:800;font-size:20px;line-height:1;letter-spacing:-.5px}
+.site-nav{display:flex;align-items:center;gap:4px;margin-left:auto}
+.site-nav a{font-weight:700;font-size:15px;color:var(--ink-soft);padding:8px 14px;border-radius:100px;transition:.2s}
+.site-nav a:hover{background:var(--yellow-soft);color:var(--ink)}
+.header-cta{display:inline-flex;align-items:center;gap:6px;background:var(--coral);color:#fff;font-weight:800;font-size:15px;padding:11px 20px;border-radius:100px;box-shadow:3px 4px 0 rgba(35,37,61,.25);transition:.15s}
+.header-cta:hover{transform:translate(1px,2px);box-shadow:2px 2px 0 rgba(35,37,61,.25)}
+.header-cta .arr{font-size:15px}
+.menu-toggle{display:none;margin-left:auto;background:var(--ink);color:#fff;border:0;border-radius:12px;width:44px;height:44px;cursor:pointer;align-items:center;justify-content:center}
+.menu-toggle svg{width:22px;height:22px}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:16px;padding:14px 27px;border-radius:100px;border:2px solid var(--ink);cursor:pointer;transition:.16s}
+.btn .arr{transition:.2s}
+.btn:hover .arr{transform:translate(2px,-2px)}
+.btn:hover{transform:translateY(-2px)}
+.btn-dark{background:var(--ink);color:#fff;box-shadow:4px 5px 0 rgba(0,0,0,.22)}
+.btn-white{background:#fff;color:var(--ink);box-shadow:4px 5px 0 rgba(0,0,0,.18)}
+.btn-accent{background:var(--acc,var(--blue));color:#fff;box-shadow:4px 5px 0 rgba(0,0,0,.2)}
+
+/* ===== HERO ===== */
+.hero{background:var(--yellow);position:relative;overflow:hidden;margin-top:-80px;padding-top:150px;padding-bottom:90px}
+.hero .blob{position:absolute;border-radius:50%;opacity:.5;pointer-events:none}
+.hero .blob.b1{width:340px;height:340px;background:var(--yellow-soft);top:-80px;right:-60px}
+.hero .blob.b2{width:200px;height:200px;background:#fff;bottom:40px;left:-60px;opacity:.4}
+.hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid var(--ink);border-radius:100px;padding:8px 16px;font-weight:700;font-size:14px;box-shadow:3px 4px 0 var(--ink);margin-bottom:26px}
+.hero-badge .dot{width:10px;height:10px;border-radius:50%;background:var(--coral)}
+.hero h1{font-family:var(--font-display);font-size:clamp(42px,6.3vw,82px);line-height:1.12;letter-spacing:1px;font-weight:400}
+.hero h1 .hl{display:inline-block;background:var(--coral);color:#fff;padding:0 .16em;margin:0 .06em;border-radius:16px;transform:rotate(-1.5deg);box-shadow:3px 4px 0 rgba(35,37,61,.18)}
+.hero p.lead{font-size:18px;color:var(--ink-soft);margin-top:26px;max-width:560px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:32px}
+.hero-person{display:flex;align-items:center;gap:14px;margin-top:34px}
+.hero-person .avatar{width:64px;height:64px;border-radius:50%;overflow:hidden;border:3px solid var(--ink);background:#fff;flex-shrink:0}
+.hero-person .avatar img{width:100%;height:100%;object-fit:cover;object-position:top}
+.hero-person strong{display:block;font-size:17px}
+.hero-person span{font-size:14px;color:var(--ink-soft)}
+.hero-visual{position:relative;display:flex;justify-content:center}
+.hero-visual .mascot{width:min(430px,90%);animation:float 5s ease-in-out infinite;filter:drop-shadow(0 16px 24px rgba(35,37,61,.18));transition:transform .18s ease-out}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-16px) rotate(2deg)}}
+.doodle{position:absolute;font-family:var(--font-latin);font-weight:800;color:var(--ink);opacity:.85;pointer-events:none;animation:twinkle 3.5s ease-in-out infinite}
+.doodle.d1{top:4%;left:-2%;font-size:26px}
+.doodle.d2{bottom:8%;right:2%;font-size:22px}
+.doodle.d3{top:-4%;right:10%;font-size:20px;color:var(--coral)}
+.doodle.d4{bottom:22%;left:4%;font-size:14px;opacity:.6}
+.doodle.d5{top:30%;right:-3%;font-size:16px;opacity:.7}
+@keyframes twinkle{0%,100%{opacity:.35;transform:scale(.9) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(10deg)}}
+
+/* ===== MARQUEE ===== */
+.marquee{background:var(--ink);color:var(--cream);overflow:hidden;padding:16px 0;position:relative;z-index:5}
+.marquee-track{display:flex;width:max-content;animation:marquee 26s linear infinite}
+.marquee span{font-family:var(--font-display);font-size:22px;letter-spacing:1px;padding:0 26px;white-space:nowrap}
+.marquee span b{color:var(--yellow);font-weight:400}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ===== TOPIC SECTIONS (fluid, borderless) ===== */
+.topic{position:relative;overflow:hidden;padding:120px 0;display:flex;align-items:center}
+.topic-bg{position:absolute;inset:0;z-index:0}
+.topic-bg img{width:100%;height:122%;object-fit:cover;object-position:70% 42%;position:absolute;top:-11%;left:0;will-change:transform}
+.topic-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--cream) 0%,rgba(255,247,236,.94) 36%,rgba(255,247,236,.55) 66%,rgba(255,247,236,.06) 90%,rgba(255,247,236,0) 100%)}
+.topic-inner{position:relative;z-index:2;width:100%}
+.topic-kicker{
+  display:inline-flex;align-items:center;gap:8px;background:var(--acc,var(--blue));color:#fff;
+  font-family:var(--font-latin);font-weight:800;font-size:13px;letter-spacing:3px;text-transform:uppercase;
+  padding:7px 16px;border-radius:100px;box-shadow:3px 3px 0 rgba(35,37,61,.16);margin-bottom:26px;
+}
+.topic-title{
+  font-family:var(--font-display);font-weight:400;
+  font-size:clamp(92px,15vw,196px);line-height:.92;letter-spacing:.02em;
+  margin-bottom:30px;display:flex;gap:.04em;user-select:none;
+}
+.topic-title span{display:inline-block;position:relative;transform:translateY(46px) rotate(3deg);opacity:0;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s ease}
+.topic-title span:nth-child(1){color:var(--ink)}
+.topic-title span:nth-child(2){color:transparent;-webkit-text-stroke:3px var(--ink)}
+.topic-title span:nth-child(3){color:var(--acc,var(--blue))}
+.topic.in .topic-title span{transform:none;opacity:1}
+.topic.in .topic-title span:nth-child(1){transition-delay:.06s}
+.topic.in .topic-title span:nth-child(2){transition-delay:.16s}
+.topic.in .topic-title span:nth-child(3){transition-delay:.26s}
+.topic-title .dot{position:absolute;top:-.18em;right:-.12em;width:.34em;height:.34em;border-radius:50%;background:var(--coral);transform:none}
+.topic-meta{max-width:520px;opacity:0;transform:translateY(30px);transition:opacity .8s ease .35s,transform .8s ease .35s}
+.topic.in .topic-meta{opacity:1;transform:none}
+.topic .body{font-size:17.5px;color:var(--ink-soft)}
+.topic .body p{margin-bottom:12px}
+.topic .body strong{font-weight:900;color:var(--ink)}
+.topic .cta{margin-top:28px}
+.chip-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.chip{font-weight:800;font-size:15px;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:100px;padding:7px 17px;cursor:pointer;transition:.15s}
+.chip:hover{transform:translateY(-2px)}
+.chip[aria-pressed="true"]{background:var(--acc,var(--blue));color:#fff}
+.level-caption{margin-top:12px;font-size:15px;font-weight:700;color:var(--ink)}
+.level-caption b{color:var(--acc,var(--blue))}
+
+/* 知字理 demo */
+.char-demo{
+  margin-top:26px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  background:#fff;border:2px solid var(--ink);border-radius:22px;padding:15px 20px;
+  box-shadow:5px 6px 0 rgba(35,37,61,.12);width:fit-content;
+}
+.char-parts{display:flex;align-items:center;gap:12px}
+.char-parts span{font-family:var(--font-display);font-size:42px;line-height:1;color:var(--ink);background:var(--yellow-soft);border:2px solid var(--ink);border-radius:14px;width:56px;height:60px;display:flex;align-items:center;justify-content:center}
+.char-parts b{font-size:26px;color:var(--coral)}
+.char-combine{font-weight:800;font-size:15px;color:#fff;background:var(--coral);border:2px solid var(--ink);border-radius:100px;padding:10px 20px;cursor:pointer;box-shadow:3px 3px 0 rgba(35,37,61,.16);transition:.15s}
+.char-combine:hover{transform:translateY(-2px)}
+.char-result{display:none;align-items:center;gap:10px}
+.char-result strong{font-family:var(--font-display);font-size:54px;line-height:1;color:#fff;background:var(--green);border:2px solid var(--ink);border-radius:16px;width:72px;height:72px;display:flex;align-items:center;justify-content:center;animation:pop .45s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{0%{transform:scale(0) rotate(-12deg)}100%{transform:scale(1) rotate(0)}}
+.char-demo.combined .char-parts,.char-demo.combined .char-combine{display:none}
+.char-demo.combined .char-result{display:flex}
+
+/* 学阅读：三本书跳转 */
+.book-row{display:flex;gap:16px;margin-top:28px;flex-wrap:wrap}
+.book-card{display:flex;flex-direction:column;width:150px;flex-shrink:0;transition:transform .22s ease}
+.book-card:nth-child(2){transform:rotate(1.6deg)}
+.book-card:nth-child(3){transform:rotate(-1.6deg)}
+.book-card:hover{transform:translateY(-9px) rotate(0) scale(1.02)}
+.book-card .cover{width:100%;aspect-ratio:1500/1070;object-fit:cover;border-radius:14px;border:3px solid var(--ink);box-shadow:4px 5px 0 rgba(35,37,61,.18);background:#fff}
+.book-card .name{margin-top:9px;font-size:13.5px;font-weight:800;color:var(--ink);text-align:center;line-height:1.3}
+.book-card .name::before{content:'试读 ';color:var(--acc,var(--pink))}
+
+/* ===== FOOTER ===== */
+footer{background:var(--ink);color:var(--cream);padding:64px 0 40px;position:relative;overflow:hidden}
+.footer-main{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start;justify-content:space-between;position:relative;z-index:2}
+.footer-brand .logo{height:44px;width:auto}
+.footer-brand p{font-family:var(--font-display);font-size:22px;margin-top:16px}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap}
+.footer-links a{font-weight:700;color:var(--cream);opacity:.85;transition:.2s}
+.footer-links a:hover{opacity:1;color:var(--yellow)}
+.footer-bottom{border-top:1px solid rgba(255,246,233,.16);margin-top:40px;padding-top:24px;font-size:14px;opacity:.7;position:relative;z-index:2}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:920px){
+  .site-nav,.header-cta{display:none}
+  .menu-toggle{display:flex}
+  .site-nav.open{display:flex;position:absolute;top:72px;left:24px;right:24px;flex-direction:column;align-items:stretch;gap:6px;background:var(--cream);border-radius:24px;padding:16px;box-shadow:8px 10px 0 rgba(0,0,0,.1)}
+  .site-nav.open a{padding:12px 16px;border-radius:16px}
+  .hero{margin-top:-80px;padding-top:140px}
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero p.lead{margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+  .hero-person{justify-content:center}
+  .hero-visual{order:-1}
+  .topic{padding:90px 0;align-items:flex-start}
+  .topic-veil{background:linear-gradient(180deg,var(--cream) 0%,rgba(255,247,236,.94) 34%,rgba(255,247,236,.5) 62%,rgba(255,247,236,.05) 100%)}
+  .topic-bg img{object-position:70% 20%}
+  .topic-title{font-size:clamp(74px,24vw,128px);flex-wrap:wrap}
+}
+</style>
+</head>
+<body data-page="home">
+<a class="skip" href="#main">跳到主要内容</a>
+
+<header id="header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="动手动脑学语言首页">
+      <img class="logo" src="assets/logo.png" alt="动手动脑学语言" width="1689" height="359">
+      <span class="brand-en">Shu Lab</span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="主导航">
+      <a href="#play">玩中学</a>
+      <a href="#watch">看听做</a>
+      <a href="#practice">互动练</a>
+      <a href="#characters">知字理</a>
+      <a href="#reading">学阅读</a>
+    </nav>
+    <a class="header-cta" href="https://yusi-dualskin-production.up.railway.app/learn/" target="_blank" rel="noopener noreferrer">进入语思智伴 <span class="arr">↗</span></a>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="展开导航">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-label="舒华教授寄语">
+    <div class="blob b1"></div><div class="blob b2"></div>
+    <span class="doodle d1">✦</span><span class="doodle d2">♡</span><span class="doodle d3">★</span><span class="doodle d4">●</span><span class="doodle d5">♪</span>
+    <div class="wrap hero-inner">
+      <div class="copy">
+        <span class="hero-badge"><span class="dot"></span>北京师范大学心理学部 · Shu Lab</span>
+        <h1>
+          <span class="hl">语言</span>是心智启蒙的起点，<br>
+          <span class="hl">阅读</span>是人生发展的基石。
+        </h1>
+        <p class="lead">我们愿用积淀四十年的教育理念与科研成果，打造一套听说读写思的整体解决方案，助力每一个孩子的健康成长与无限未来。</p>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="games.html">看看游戏盒 <span class="arr">↗</span></a>
+          <a class="btn btn-white" href="https://yusi-dualskin-production.up.railway.app/learn/" target="_blank" rel="noopener noreferrer">进入语思智伴 <span class="arr">↗</span></a>
+        </div>
+        <div class="hero-person">
+          <span class="avatar"><img src="assets/professor-shu.webp" alt="舒华教授" loading="lazy"></span>
+          <div style="text-align:left">
+            <strong>舒华 教授</strong>
+            <span>北京师范大学心理学部</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img class="mascot" id="mascot" src="assets/mascot-cloud.png" alt="吉祥物：读书的小云朵">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>玩中学 <b>·</b> 看听做 <b>·</b> 互动练 <b>·</b> 知字理 <b>·</b> 学阅读 <b>·</b> </span>
+      <span>玩中学 <b>·</b> 看听做 <b>·</b> 互动练 <b>·</b> 知字理 <b>·</b> 学阅读 <b>·</b> </span>
+    </div>
+  </div>
+
+  <!-- ===== 玩中学 ===== -->
+  <section class="topic" id="play" style="--acc:var(--blue)">
+    <div class="topic-bg"><img src="assets/play-toys-blue-hero-v5.webp" alt="" loading="lazy"></div>
+    <div class="topic-veil"></div>
+    <div class="wrap topic-inner">
+      <span class="topic-kicker">Play &amp; Learn</span>
+      <h2 class="topic-title"><span>玩</span><span>中</span><span>学</span></h2>
+      <div class="topic-meta">
+        <div class="body">
+          <p>以儿童心理发展规律为基础</p>
+          <p>遵循汉语语言和阅读发展规律</p>
+          <p>采用寓教于乐、动手动脑的游戏形式</p>
+        </div>
+        <div class="chip-row" id="level-chips" role="tablist" aria-label="选择游戏盒级别">
+          <button class="chip" type="button" role="tab" data-level="1" aria-pressed="true">1级</button>
+          <button class="chip" type="button" role="tab" data-level="2" aria-pressed="false">2级</button>
+          <button class="chip" type="button" role="tab" data-level="3" aria-pressed="false">3级</button>
+          <button class="chip" type="button" role="tab" data-level="4" aria-pressed="false">4级</button>
+        </div>
+        <p class="level-caption" id="level-caption">1级 · <b>口语发展</b></p>
+        <div class="cta"><a class="btn btn-accent" href="games.html">看看游戏盒 <span class="arr">↗</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 看听做 ===== -->
+  <section class="topic" id="watch" style="--acc:var(--gold)">
+    <div class="topic-bg"><img src="assets/watch-movement-gold-hero.webp" alt="" loading="lazy"></div>
+    <div class="topic-veil"></div>
+    <div class="wrap topic-inner">
+      <span class="topic-kicker">Watch &amp; Move</span>
+      <h2 class="topic-title"><span>看</span><span>听</span><span>做</span></h2>
+      <div class="topic-meta">
+        <div class="body">
+          <p><strong>主题微课</strong> 以视频课程形式，系统讲解核心知识与关键概念</p>
+          <p><strong>律动视频</strong> 以儿歌律动形式，帮助儿童巩固拓展概念、积极表达</p>
+        </div>
+        <div class="cta"><a class="btn btn-accent" href="courses.html">看看课程 <span class="arr">↗</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 互动练 ===== -->
+  <section class="topic" id="practice" style="--acc:var(--violet)">
+    <div class="topic-bg"><img src="assets/ai-map.webp" alt="" loading="lazy"></div>
+    <div class="topic-veil"></div>
+    <div class="wrap topic-inner">
+      <span class="topic-kicker">AI Practice</span>
+      <h2 class="topic-title"><span>互</span><span>动</span><span>练</span></h2>
+      <div class="topic-meta">
+        <div class="body"><p>依托 AI 智能学伴，实现个性化因材施教</p></div>
+        <div class="cta"><a class="btn btn-accent" href="https://yusi-dualskin-production.up.railway.app/learn/" target="_blank" rel="noopener noreferrer">进入语思智伴 <span class="arr">↗</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 知字理 ===== -->
+  <section class="topic" id="characters" style="--acc:var(--green)">
+    <div class="topic-bg"><img src="assets/characters-reading-hero.webp" alt="" loading="lazy"></div>
+    <div class="topic-veil"></div>
+    <div class="wrap topic-inner">
+      <span class="topic-kicker">Character Stories</span>
+      <h2 class="topic-title"><span>知</span><span>字</span><span>理</span></h2>
+      <div class="topic-meta">
+        <div class="body"><p>把汉字字理，变成老师能用、孩子能懂的教学方法，举一反三学汉字。</p></div>
+        <div class="char-demo" id="char-demo">
+          <div class="char-parts"><span>日</span><b aria-hidden="true">＋</b><span>月</span></div>
+          <button class="char-combine" type="button" id="char-combine">合起来看</button>
+          <div class="char-result" aria-live="polite"><strong>明</strong></div>
+        </div>
+        <div class="cta"><a class="btn btn-accent" href="articles.html">看看汉字的故事 <span class="arr">↗</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 学阅读 ===== -->
+  <section class="topic" id="reading" style="--acc:var(--pink)">
+    <div class="topic-bg"><img src="assets/reading-picturebook-purple-hero.webp" alt="" loading="lazy"></div>
+    <div class="topic-veil"></div>
+    <div class="wrap topic-inner">
+      <span class="topic-kicker">Read Together</span>
+      <h2 class="topic-title"><span>学</span><span>阅</span><span>读</span></h2>
+      <div class="topic-meta">
+        <div class="body"><p>根据孩子的阅读能力匹配难度适宜的分级绘本，提升阅读能力。</p></div>
+        <div class="book-row">
+          <a class="book-card" href="library.html?book=compare" aria-label="试读比一比">
+            <img class="cover" src="assets/book-compare-0.webp" alt="比一比封面" loading="lazy">
+            <span class="name">比一比</span>
+          </a>
+          <a class="book-card" href="library.html?book=spring" aria-label="试读春天来了">
+            <img class="cover" src="assets/book-spring-0.webp" alt="春天来了封面" loading="lazy">
+            <span class="name">春天来了</span>
+          </a>
+          <a class="book-card" href="library.html?book=bridges" aria-label="试读各种各样的桥">
+            <img class="cover" src="assets/book-bridges-0.webp" alt="各种各样的桥封面" loading="lazy">
+            <span class="name">各种各样的桥</span>
+          </a>
+        </div>
+        <div class="cta"><a class="btn btn-accent" href="library.html">选一本书 <span class="arr">↗</span></a></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="footer">
+  <div class="wrap">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <img class="logo" src="assets/logo.png" alt="动手动脑学语言" width="1689" height="359">
+        <p>一起玩，一起读。</p>
+      </div>
+      <nav class="footer-links" aria-label="页尾导航">
+        <a href="games.html">玩中学</a>
+        <a href="courses.html">看听做</a>
+        <a href="index.html#practice">互动练</a>
+        <a href="articles.html">知字理</a>
+        <a href="library.html">学阅读</a>
+      </nav>
+    </div>
+    <p class="footer-bottom">儿童语言与阅读发展项目</p>
+  </div>
+</footer>
+
+<script>
+// mobile menu
+const toggle=document.getElementById('menu-toggle');
+const nav=document.getElementById('site-nav');
+toggle.addEventListener('click',()=>{
+  const open=toggle.getAttribute('aria-expanded')!=='true';
+  toggle.setAttribute('aria-expanded',String(open));
+  toggle.setAttribute('aria-label',open?'收起导航':'展开导航');
+  nav.classList.toggle('open',open);
+});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  toggle.setAttribute('aria-expanded','false');
+  nav.classList.remove('open');
+}));
+
+// scroll-driven reveal + illustration parallax (single rAF loop)
+const topics=[...document.querySelectorAll('.topic')];
+let ticking=false;
+function onScroll(){
+  const vh=innerHeight;
+  topics.forEach(sec=>{
+    const r=sec.getBoundingClientRect();
+    // reveal when section enters viewport
+    if(!sec.classList.contains('in') && r.top < vh*0.88 && r.bottom > 0){
+      sec.classList.add('in');
+    }
+    // parallax background
+    const img=sec.querySelector('.topic-bg img');
+    if(img){
+      const delta=(r.top + r.height/2 - vh/2)/vh;
+      img.style.transform=`translateY(${delta*-26}px)`;
+    }
+  });
+  ticking=false;
+}
+function schedule(){ if(!ticking){ requestAnimationFrame(onScroll); ticking=true; } }
+addEventListener('scroll',schedule,{passive:true});
+addEventListener('resize',schedule);
+onScroll();
+
+// hero mascot parallax
+const mascot=document.getElementById('mascot');
+const hero=document.querySelector('.hero');
+if(mascot && hero && matchMedia('(pointer:fine)').matches){
+  hero.addEventListener('mousemove',e=>{
+    const r=hero.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    mascot.style.transform=`translate(${x*18}px,${y*14}px)`;
+  });
+  hero.addEventListener('mouseleave',()=>{ mascot.style.transform=''; });
+}
+
+// level chips
+const levelNames={1:'口语发展',2:'口语提升',3:'读写发展',4:'读写提升'};
+const chips=document.querySelectorAll('#level-chips .chip');
+const caption=document.getElementById('level-caption');
+chips.forEach(c=>c.addEventListener('click',()=>{
+  chips.forEach(x=>x.setAttribute('aria-pressed',String(x===c)));
+  const lv=c.dataset.level;
+  caption.innerHTML=`${lv}级 · <b>${levelNames[lv]}</b>`;
+}));
+
+// 知字理 combine demo
+const combineBtn=document.getElementById('char-combine');
+const demo=document.getElementById('char-demo');
+combineBtn.addEventListener('click',()=>{ demo.classList.add('combined'); });
+document.getElementById('char-result').addEventListener('click',()=>{ demo.classList.remove('combined'); });
+</script>
+</body>
+</html>
